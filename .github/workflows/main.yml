@@ -24,4 +24,4 @@ jobs:
       run: npm install -g surge
 
     - name: Deploy to Surge
-      run: surge ./build covid-19-by-rameez-teamv8 --token ${{secrets.SURGE_TOKEN}}
+      run: surge ./build covid-19-by-rameez-teamv8.surge.sh --token ${{secrets.SURGE_TOKEN}}
