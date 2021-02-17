@@ -1,5 +1,6 @@
+// import { keys } from '@material-ui/core/styles/createBreakpoints';
 import React,{useState,useEffect} from 'react';
-// import CountUp from "react-countup";
+import CountUp from "react-countup";
 
 
 
@@ -10,6 +11,7 @@ function CardData(){
   const [confirmed, setConfirmed] = useState("");
   const [recovered, setRecovered] = useState("");
   const [deaths, setDeaths] = useState("");
+  
   
   
   useEffect(()=>{
@@ -24,6 +26,10 @@ function CardData(){
       setRecovered(recived[0].recovered)
       setDeaths(recived[0].deaths);
       
+    
+      
+      
+      
       
     }
     
@@ -34,17 +40,19 @@ function CardData(){
     
   },[])
   
-  
-  
+  // let index = data.findIndex(ind => ind.country == "USA");
+  // console.log(index);
   
   const handle = (e)=>{
-    
-    const a =  e.target.index;
-    console.log(e);
-
-    
-    
-    
+  
+   const a = e.target.value;
+   let ind1 = data.findIndex(ind2 => ind2.country == a);
+   
+ 
+   setConfirmed(data[ind1].active);
+   setRecovered(data[ind1].recovered)
+   setDeaths(data[ind1].deaths);
+   
     
     
     
@@ -61,14 +69,15 @@ function CardData(){
   return(
     
     <>
-  <label>Countries Status</label>
+  <label style={{margin: '0 auto'}}>Countries Status</label>
 
-<select onChange={handle} style={{textAlign: 'center', marginLeft : '20px'}}>
+<select onChange={handle} style={{textAlign: 'center', marginLeft : '150px'}}>
 
-  { data.map ((obj1,ind)=>{
+  {data.map ((key,ind)=>{
+  
     
     return( 
-      <option key={ind}>{obj1.country}</option>
+      <option key={ind}>{key.country}</option>
       )
       
       
@@ -85,14 +94,38 @@ function CardData(){
 
 <div style={{marginTop : '100px'}} className="row">
   <div className="column">
-    <div className="card">Total-Active-Cases<br />{confirmed}
+    <div className="card">Total-Active-Cases<br />{<CountUp 
+    start={0}
+    duration={3}
+    separator={","}
+    end={Number(confirmed)}
+    
+    
+    /> }
 </div>
   </div>
   <div className="column">
-    <div className="card">Total-Recoverd<br />{recovered}</div>
+    <div className="card">Total-Recoverd<br />{<CountUp 
+    start={0}
+    duration={3}
+    separator={","}
+    end={Number(recovered)}
+    
+    
+    
+    /> }</div>
   </div>
   <div className="column">
-    <div className="card">Total-Deaths<br />{deaths}</div>
+    <div className="card">Total-Deaths<br />{<CountUp 
+    
+    start={0}
+    duration={3}
+    separator={","}
+    end={Number(deaths)}
+    
+    
+    
+    />}</div>
   </div>
   
   </div>
