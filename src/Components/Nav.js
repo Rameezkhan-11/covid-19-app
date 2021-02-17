@@ -31,6 +31,7 @@ export default function Nav() {
           <Typography variant="h6" className={classes.title}>
             Covid-19 Tracker App
             <p>By Rameez khan #TeamV8</p>
+            <p>Abdullah</p>
           </Typography>
           
         </Toolbar>
