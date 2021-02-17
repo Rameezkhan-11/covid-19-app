@@ -1,11 +1,26 @@
 import React from 'react';
+import Global from './Components/Global';
+import Countries from './Components/Countries'
+import Nav from './Components/Nav'
+import CardData from './Components/CardData';
+import './Components/Card.css';
 
-function App() {
+
+import P from './Components/P';
+
+function App() 
+{
+
+
+
+
   return (
   <>
-  <h1>Hello World</h1>
-
-
+     <Nav />
+    {/* <Countries /> */}
+    {/* <Global /> */}
+    {/* <P /> */}
+    <CardData />
   </>
   );
 }
