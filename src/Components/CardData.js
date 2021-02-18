@@ -1,6 +1,7 @@
-// import { keys } from '@material-ui/core/styles/createBreakpoints';
+
 import React,{useState,useEffect} from 'react';
 import CountUp from "react-countup";
+import {Pie} from 'react-chartjs-2';
 
 
 
@@ -60,7 +61,26 @@ function CardData(){
   }
   
   
-  
+  const dataGraph = {
+    labels: [
+      'Total-deaths',
+      'Total-recovered',
+      'Total-confirmed'
+    ],
+    datasets: [{
+      data: [Number(confirmed),Number(recovered),Number(deaths)],
+      backgroundColor: [
+      '#FF6384',
+      '#36A2EB',
+      '#FFCE56'
+      ],
+      hoverBackgroundColor: [
+      '#FF6384',
+      '#36A2EB',
+      '#FFCE56'
+      ]
+    }]
+  };
   
   
   
@@ -69,9 +89,9 @@ function CardData(){
   return(
     
     <>
-  <label style={{margin: '0 auto'}}>Countries Status</label>
+  <label style={{ paddingRight: '25px'}}>Countries Status</label>
 
-<select onChange={handle} style={{textAlign: 'center', marginLeft : '150px'}}>
+<select onChange={handle} style={{backgroundColor:'#efefef' }}>
 
   {data.map ((key,ind)=>{
   
@@ -94,7 +114,7 @@ function CardData(){
 
 <div style={{marginTop : '100px'}} className="row">
   <div className="column">
-    <div className="card">Total-Active-Cases<br />{<CountUp 
+    <div className="card">Total-Active<br />{<CountUp 
     start={0}
     duration={3}
     separator={","}
@@ -132,7 +152,10 @@ function CardData(){
 
 
 
-
+  <div>
+        <h2>Covid-19 Graph</h2>
+        <Pie data={dataGraph} />
+      </div>
 
     </>
 

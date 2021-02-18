@@ -19,7 +19,9 @@ function App()
      <Nav />
    
     <CardData />
-  </>
+
+    
+    </>
   );
 }
 
