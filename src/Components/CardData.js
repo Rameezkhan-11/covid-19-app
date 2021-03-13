@@ -114,7 +114,7 @@ function CardData(){
 
 <div style={{marginTop : '100px'}} className="row">
   <div className="column">
-    <div className="card">Total-Active<br />{<CountUp 
+    <div className="card">Total-Confirmed<br />{<CountUp 
     start={0}
     duration={3}
     separator={","}
